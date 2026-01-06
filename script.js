@@ -1,0 +1,36 @@
+
+// Lock scroll immediately
+document.body.classList.add("splash-active");
+
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        const splash = document.getElementById("splash");
+
+        splash.remove();
+
+        // Restore scroll
+        document.body.classList.remove("splash-active");
+
+        // Trigger animations immediately
+        requestAnimationFrame(() => {
+            document.body.classList.add("loaded");
+        });
+
+    }, 5000); // splash duration
+});
+
+// Project card animation
+const cards = document.querySelectorAll('.project-card');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+}, { threshold: 0.5 });
+cards.forEach(card => observer.observe(card));
+
+const contentCards = document.querySelectorAll('.Content-card');
+contentCards.forEach(card => observer.observe(card));

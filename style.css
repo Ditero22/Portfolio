@@ -189,7 +189,7 @@ body {
     padding: 60px 20px 20px; /* top padding leaves space for fixed navbar */
     background: rgba(70, 70, 70, 0.15); /* semi-transparent bar */
     color: #fff;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
     letter-spacing: 2px;
     box-shadow: 0 4px 10px rgba(190, 190, 190, 0.3);
@@ -478,4 +478,5 @@ footer {
 @keyframes slideRight {
     from { opacity: 0; transform: translateX(200px); }
     to { opacity: 1; transform: translateX(0); }
+
 }

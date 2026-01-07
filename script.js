@@ -39,3 +39,20 @@ cards.forEach(card => observer.observe(card));
 
 const contentCards = document.querySelectorAll('.Content-card');
 contentCards.forEach(card => observer.observe(card));
+
+const skillGroups = document.querySelectorAll('.skill-group');
+
+const skillObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+}, {
+    threshold: 0.2,
+    rootMargin: "-20% 0px -20% 0px"
+});
+
+skillGroups.forEach(skill => skillObserver.observe(skill));

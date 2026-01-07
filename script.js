@@ -21,7 +21,8 @@ window.addEventListener("load", () => {
 
 // Project card animation
 const cards = document.querySelectorAll('.project-card');
-const observer = new IntersectionObserver(entries => {
+
+const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
@@ -29,7 +30,11 @@ const observer = new IntersectionObserver(entries => {
             entry.target.classList.remove('show');
         }
     });
-}, { threshold: 0.5 });
+}, {
+    threshold: 0.2,
+    rootMargin: "-20% 0px -20% 0px"
+});
+
 cards.forEach(card => observer.observe(card));
 
 const contentCards = document.querySelectorAll('.Content-card');
